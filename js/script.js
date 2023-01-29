@@ -28,11 +28,24 @@ for (let i=0; i<hourArray.length; i++) {
     // create div for Event column
     let eventDiv = $('<div>');
     eventDiv.addClass('col-9 border-right align-top '+bgColorClass);
+    // create textarea element for inputing event
+    let textareaEl = $('<textarea>');
+    textareaEl.addClass('form-control bg-transparent');
+    textareaEl.attr('rows', 3);
+    textareaEl.attr('maxlength', 100);
+    textareaEl.attr('data-hour', i);
+    eventDiv.append(textareaEl);
     rowDiv.append(eventDiv);
 
-    //create div for Save button column
+    // create div for Save button column
     let saveDiv = $('<div>');
     saveDiv.addClass('col-1');
+    // add a save button to the last column
+    let saveBtn = $('<button>');
+    saveBtn.addClass('btn btn-primary');
+    saveBtn.attr('data-toggle', 'button');
+    saveBtn.text('Save');
+    saveDiv.append(saveBtn);
     rowDiv.append(saveDiv);
 
     formEl.append(rowDiv);
