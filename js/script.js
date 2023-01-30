@@ -25,7 +25,10 @@ for (let i=0; i<hourArray.length; i++) {
     } else if (i >= currentHour) {
         bgColorClass = "future";
     }
-    let hourText = moment().hour(i).format("hA"); // set hour in 12-hour AM/PM format    
+    let hourText = moment().hour(i).format("hA"); // set hour in 12-hour AM/PM format  
+    
+    // get item from localStorage
+    let item = localStorage.getItem(hourText); // get saved item from localStorage
 
     // create div for Hour column
     let rowDiv = $('<div>');
@@ -44,7 +47,7 @@ for (let i=0; i<hourArray.length; i++) {
     textareaEl.attr('data-ta-hour', hourText);
     textareaEl.attr('rows', 3);
     textareaEl.attr('maxlength', 100);
-    textareaEl.attr('data-hour', i);
+    textareaEl.val(item); // display saved item
     eventDiv.append(textareaEl);
     rowDiv.append(eventDiv);
 
@@ -77,8 +80,8 @@ for (let i=0; i<hourArray.length; i++) {
         }
 
         let val = $('[data-ta-hour=' + hourText + ']').val().trim(); // get textarea value
-        console.log("hourText: "+hourText);
-        console.log("textarea value: "+val);
+        // console.log("hourText: "+hourText);
+        // console.log("textarea value: "+val);
         localStorage.setItem(hourText, val); // set textarea value to localStorage
     });
 
