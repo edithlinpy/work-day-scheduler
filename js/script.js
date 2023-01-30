@@ -83,6 +83,7 @@ for (let i=9; i<hourArray.length+9; i++) {
         // console.log("hourText: "+hourText);
         // console.log("textarea value: "+val);
         localStorage.setItem(hourText, val); // set textarea value to localStorage
+        alert('Event has been saved successfully.');
     });
 
 
