@@ -14,12 +14,12 @@ if (storedCurrentDay !== null && storedCurrentDay !== currentDay) {
     localStorage.clear();
 }
 
-let hourArray = new Array(24);
+let hourArray = new Array(9);
 let setCurrentDay = false;
 
 // set up bootstrap grid for timeblocks
 let bgColorClass = "past";
-for (let i=0; i<hourArray.length; i++) {
+for (let i=9; i<hourArray.length+9; i++) {
     if (i === currentHour) {
         bgColorClass = "present";
     } else if (i >= currentHour) {
