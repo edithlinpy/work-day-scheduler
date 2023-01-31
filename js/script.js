@@ -82,14 +82,20 @@ for (let i=9; i<hourArray.length+9; i++) {
         let val = $('[data-ta-hour=' + hourText + ']').val().trim(); // get textarea value
         // console.log("hourText: "+hourText);
         // console.log("textarea value: "+val);
+        let storedVal = localStorage.getItem(hourText);
         localStorage.setItem(hourText, val); // set textarea value to localStorage
-        if (val === "") {
-            alert('Event has been erased successfully.');
+
+        console.log("storedVal: "+storedVal);
+        console.log("val: "+val);
+
+        if ((storedVal === null || storedVal === "") && val === "") {
+            alert('Please enter an event.');
         } else {
-            alert('Event has been saved successfully.');
+            if (val === "") {
+                alert('Event has been erased successfully.');
+            } else {
+                alert('Event has been saved successfully.');
+            }
         }
     });
-
-
-
 }
